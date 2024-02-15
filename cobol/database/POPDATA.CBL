@@ -1,6 +1,6 @@
       * Populate Database
         IDENTIFICATION DIVISION.
-         PROGRAM-ID.     popdata.
+         PROGRAM-ID.     POPDATA.
          AUTHOR.         Mark.
          INSTALLATION.   Ubuntu.
          DATE-WRITTEN.   2024-02-10.
@@ -19,52 +19,52 @@
             ACCESS MODE IS SEQUENTIAL. 
         DATA DIVISION.
         FILE SECTION.
-        FD INPUT-FILE          RECORD CONTAINS 220 CHARACTERS.
-        01 INPUT-RECORD        PIC X(180).
+        FD INPUT-FILE             RECORD CONTAINS 220 CHARACTERS.
+        01 INPUT-RECORD           PIC X(180).
 
         01 OUTPUT-RECORD.
-            05 OUT-SDATE       PIC X(10).
-            05 OUT-STIME       PIC X(10).
-            05 OUT-CATEGORY    PIC X(35).
-            05 OUT-ITEM-NAME   PIC X(40).
-            05 OUT-QUANTITY    PIC 9(3).
-            05 OUT-SDETAIL     PIC X(45).
-            05 OUT-SKU         PIC X(20).
-            05 OUT-DISCOUNT    PIC 9(4).
-            05 OUT-PRICE       PIC 9(4).
-            05 OUT-TRANS-ID    PIC X(40).
-            05 OUT-SUNIT       PIC X(4).
-            05 OUT-GTIN        PIC X(10).
-            05 OUT-COST        PIC 9(4).
+            05 OUT-SDATE          PIC X(10).
+            05 OUT-STIME          PIC X(10).
+            05 OUT-CATEGORY       PIC X(35).
+            05 OUT-ITEM-NAME      PIC X(40).
+            05 OUT-QUANTITY       PIC 9(3).
+            05 OUT-SDETAIL        PIC X(45).
+            05 OUT-SKU            PIC X(16).
+            05 OUT-DISCOUNT       PIC 9(4).
+            05 OUT-PRICE          PIC 9(4).
+            05 OUT-TRANS-ID       PIC X(40).
+            05 OUT-SUNIT          PIC X(4).
+            05 OUT-GTIN           PIC X(10).
+            05 OUT-COST           PIC 9(4).
 
         WORKING-STORAGE SECTION.
-        01  WS-EOF             PIC X(1)    VALUE 'N'.
+        01  WS-EOF                PIC X    VALUE 'N'.
+        01  WS-OFLOW              PIC X    VALUE 'N'.
 
-        01  TMP-DATA           PIC X(220).
+        01  WS-TMP-DATA           PIC X(220).
 
-        01  SEPARATED.
-            05 SDATE           PIC X(10).
-            05 WS-DATE REDEFINES SDATE.
-                10 YY      PIC 9(2).
-                10 FILLER  PIC X(1) VALUE '-'.
-                10 MM      PIC 9(3).
-                10 FILLER  PIC X(1) VALUE '-'.
-                10 DD      PIC 9(2).
-            05 STIME           PIC X(10).
-            05 CATEGORY        PIC X(35).
-            05 ITEM-NAME       PIC X(40).
-            05 QUANTITY        PIC 9(3).
-            05 SDETAIL         PIC X(45).
-            05 SKU             PIC X(20).
-            05 DISCOUNT        PIC 9(4).
-            05 PRICE           PIC 9(4).
-            05 TRANS-ID        PIC X(40).
-            05 SUNIT           PIC X(4).
-            05 GTIN            PIC X(10).
-            05 COST            PIC 9(4).
+        01  WS-SEPARATED.
+            05 WS-SDATE           PIC X(10).           
+            05 WS-STIME           PIC X(10).
+            05 WS-CATEGORY        PIC X(35).
+            05 WS-ITEM-NAME       PIC X(30).
+            05 WS-QUANTITY        PIC 9(3).
+            05 WS-SDETAIL         PIC X(45).
+            05 WS-SKU             PIC X(16).
+            05 WS-DISCOUNT        PIC X(5).
+            05 WS-DISC-NUM REDEFINES WS-DISCOUNT PIC 9(2)V99.
+            05 WS-PRICE           PIC X(5).
+            05 WS-PRIC-NUM REDEFINES WS-PRICE PIC 9(2)V99.
+            05 WS-TRANS-ID        PIC X(40).
+            05 WS-SUNIT           PIC X(4).
+            05 WS-GTIN            PIC X(10).
+            05 WS-COST            PIC $*9.99.
  
-        01  SQL-FIELDS-STR.
-            05 FS              PIC X(1) VALUE ','.
+        01  WS-SQL-FIELDS-STR.
+            05 FS                 PIC X(1) VALUE ','.
+
+        01  WS-TOTAL-COST         PIC $*9.99.
+        01  WS-DISC-PRICE         PIC 9(4).
 
         PROCEDURE DIVISION.
         MAIN-PROCEDURE.
@@ -75,29 +75,67 @@
                 STOP RUN.
 
         READ-PROCEDURE.
-            MOVE SPACES TO SEPARATED.
+            MOVE SPACES TO WS-SEPARATED.
             READ INPUT-FILE INTO INPUT-RECORD
                     AT END MOVE 'Y' TO WS-EOF
-                NOT AT END PERFORM DISPLAY-PROCEDURE
+                NOT AT END PERFORM BUILD-PROCEDURE
             END-READ.
 
-        DISPLAY-PROCEDURE.   
+        BUILD-PROCEDURE.   
             UNSTRING INPUT-RECORD DELIMITED BY ','
-                 INTO SDATE STIME CATEGORY ITEM-NAME QUANTITY
-                     SDETAIL SKU DISCOUNT PRICE TRANS-ID
-                     SUNIT GTIN COST
+                 INTO WS-SDATE WS-STIME WS-CATEGORY WS-ITEM-NAME 
+                    WS-QUANTITY WS-SDETAIL WS-SKU WS-DISCOUNT WS-PRICE
+                    WS-TRANS-ID WS-SUNIT WS-GTIN WS-COST
+                    ON OVERFLOW MOVE 'Y' TO WS-OFLOW
             END-UNSTRING.
-            MOVE SPACES TO TMP-DATA.
-            STRING  ITEM-NAME DELIMITED BY SIZE
+            PERFORM PROCESS-PROCEDURE.
+            MOVE SPACES TO WS-TMP-DATA.
+            STRING  WS-DISCOUNT
                     SPACE
-                    QUANTITY
+                    WS-SDATE DELIMITED BY SIZE
                     SPACE
-                    SDETAIL DELIMITED BY SIZE
+                    WS-GTIN DELIMITED BY SIZE
                     SPACE
-                    SKU  DELIMITED BY SIZE
-                    INTO        TMP-DATA
+                    WS-SKU DELIMITED BY SIZE
+                    SPACE
+                    'QTY ' WS-QUANTITY
+                    SPACE
+                    'PRC ' WS-PRICE
+                    SPACE
+                    'DSC ' WS-DISCOUNT
+                    SPACE
+                    'TOT ' WS-TOTAL-COST
+                    SPACE
+                    WS-ITEM-NAME DELIMITED BY SIZE
+                    SPACE
+                    WS-SDETAIL DELIMITED BY SIZE
+                    INTO WS-TMP-DATA
             END-STRING.
 
-            DISPLAY TMP-DATA.
+            IF WS-OFLOW = 'N'
+                PERFORM DISPLAY-PROCEDURE
+            ELSE
+                DISPLAY 'PROGRAM OVERFLOW'
+                DISPLAY INPUT-RECORD
+                CLOSE INPUT-FILE
+                STOP RUN
+            END-IF.
 
-        
+        DISPLAY-PROCEDURE.
+            MOVE 'N' TO WS-OFLOW.
+            DISPLAY WS-TMP-DATA.
+
+        PROCESS-PROCEDURE.
+      *      DIVIDE WS-PRICE BY 100 
+      *          GIVING WS-PRICE.
+      *      DIVIDE WS-DISCOUNT BY 100 
+      *          GIVING WS-DISCOUNT.
+      *      SUBTRACT WS-DISCOUNT FROM WS-PRICE 
+      *          GIVING WS-DISC-PRICE.
+      *      MULTIPLY WS-DISC-PRICE BY WS-QUANTITY 
+      *          GIVING WS-TOTAL-COST ROUNDED.
+            
+            SUBTRACT WS-DISC-NUM FROM WS-PRIC-NUM
+                GIVING WS-DISC-PRICE.
+            MULTIPLY WS-DISC-PRICE BY WS-QUANTITY
+                GIVING WS-TOTAL-COST ROUNDED. 
