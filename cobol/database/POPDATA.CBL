@@ -14,7 +14,7 @@
         FILE-CONTROL.
             SELECT INPUT-FILE
       *     ASSIGN TO '/home/mark/mysql/scripts/data' 
-            ASSIGN TO './data'
+            ASSIGN TO './data.nosp'
             ORGANIZATION IS LINE SEQUENTIAL
             ACCESS MODE IS SEQUENTIAL. 
         DATA DIVISION.
@@ -52,13 +52,14 @@
             05 WS-SDETAIL         PIC X(45).
             05 WS-SKU             PIC X(16).
             05 WS-DISCOUNT        PIC X(5).
-            05 WS-DISC-NUM REDEFINES WS-DISCOUNT PIC 9(2)V99.
             05 WS-PRICE           PIC X(5).
-            05 WS-PRIC-NUM REDEFINES WS-PRICE PIC 9(2)V99.
             05 WS-TRANS-ID        PIC X(40).
             05 WS-SUNIT           PIC X(4).
             05 WS-GTIN            PIC X(10).
             05 WS-COST            PIC $*9.99.
+
+            05 WS-DISC-NUM REDEFINES WS-DISCOUNT PIC 9(2)V99.
+            05 WS-PRIC-NUM REDEFINES WS-PRICE PIC 9(2)V99.
  
         01  WS-SQL-FIELDS-STR.
             05 FS                 PIC X(1) VALUE ','.
