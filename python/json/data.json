@@ -1,0 +1,179 @@
+{
+    "d": {
+        "results": [
+            {
+                "__metadata": {
+                    "id": "https://mmc-s4sap04.mmc.1stbasis.com:44300/sap/opu/odata/sap/C_PURCHASEORDER_FS_SRV/C_PurchaseOrderFs('4500000129')",
+                    "uri": "https://mmc-s4sap04.mmc.1stbasis.com:44300/sap/opu/odata/sap/C_PURCHASEORDER_FS_SRV/C_PurchaseOrderFs('4500000129')",
+                    "type": "C_PURCHASEORDER_FS_SRV.C_PurchaseOrderFsType"
+                },
+                "PurchaseOrder": "4500000129",
+                "PurchaseOrder_Text": "Standard PO",
+                "PurchaseOrderType": "NB",
+                "PurchaseOrderType_Text": "Standard PO",
+                "PurchaseOrderSubtype": "",
+                "PurchasingDocumentOrigin": "9",
+                "PurchasingDocumentCategory": "F",
+                "PurchasingDocumentType": "NB",
+                "CreatedByUser": "STUDENT083",
+                "CreationDate": "/Date(1661299200000)/",
+                "PurchaseOrderDate": "/Date(1661299200000)/",
+                "Language": "EN",
+                "PurchasingDocumentDeletionCode": "",
+                "ReleaseIsNotCompleted": false,
+                "PurchasingCompletenessStatus": false,
+                "CompanyCode": "I710",
+                "CompanyCodeName": "Company Code 1710",
+                "PurchasingOrganization": "I710",
+                "PurchasingOrganizationName": "Purch. Org. I710",
+                "PurchasingGroup": "003",
+                "PurchasingGroupName": "Group 003",
+                "Supplier": "17300002",
+                "SupplierName": "I720",
+                "ManualSupplierAddressID": "",
+                "SupplierAddressID": "23660",
+                "SupplyingSupplier": "",
+                "SupplyingPlant": "I720",
+                "InvoicingParty": "",
+                "PaymentTerms": "NT30",
+                "PaymentTerms_Text": "Net Due in 30 Days",
+                "CashDiscount1Days": "30",
+                "CashDiscount2Days": "0",
+                "NetPaymentDays": "0",
+                "CashDiscount1Percent": "0.000",
+                "CashDiscount2Percent": "0.000",
+                "PaymentTermsDescription": "Net Due in 30 Days",
+                "IncotermsClassification": "",
+                "IncotermsClassification_Text": "",
+                "IncotermsTransferLocation": "",
+                "DocumentCurrency": "USD",
+                "PurchaseOrderNetAmount": "300.00",
+                "PurchasingDocumentStatus": "04",
+                "UserFullName": "",
+                "PurchasingDocumentStatusName": "Sent",
+                "to_PurchaseOrderGoodsReceipt": {
+                    "__deferred": {
+                        "uri": "https://mmc-s4sap04.mmc.1stbasis.com:44300/sap/opu/odata/sap/C_PURCHASEORDER_FS_SRV/C_PurchaseOrderFs('4500000129')/to_PurchaseOrderGoodsReceipt"
+                    }
+                },
+                "to_PurchaseOrderItem": {
+                    "results": [
+                        {
+                            "__metadata": {
+                                "id": "https://mmc-s4sap04.mmc.1stbasis.com:44300/sap/opu/odata/sap/C_PURCHASEORDER_FS_SRV/C_PurOrdItemEnh(PurchaseOrder='4500000129',PurchaseOrderItem='00010')",
+                                "uri": "https://mmc-s4sap04.mmc.1stbasis.com:44300/sap/opu/odata/sap/C_PURCHASEORDER_FS_SRV/C_PurOrdItemEnh(PurchaseOrder='4500000129',PurchaseOrderItem='00010')",
+                                "type": "C_PURCHASEORDER_FS_SRV.C_PurOrdItemEnhType"
+                            },
+                            "PurchaseOrder": "4500000129",
+                            "PurchaseOrderItem": "00010",
+                            "PurchaseOrderItemCategory": "0",
+                            "PurchaseOrderItemCategory_Text": "Standard",
+                            "Material": "F-10A",
+                            "ManufacturerMaterial": "F-10A",
+                            "ManufacturerMaterial_Text": "FIN10A,MTS-DDMRP,PD",
+                            "MaterialGroup": "L004",
+                            "MaterialGroup_Text": "Finished Goods",
+                            "Plant": "I710",
+                            "Plant_Text": "Production Plant",
+                            "AccountAssignmentCategory": "",
+                            "AccountAssignmentCategory_Text": "",
+                            "PurchaseOrderItemText": "FIN10A,MTS-DDMRP,PD",
+                            "PurchaseRequisition": "",
+                            "PurchaseRequisitionItem": "00000",
+                            "ProductType": "1",
+                            "ProductType_Text": "Material",
+                            "FirstDeliveryDate": "/Date(1661126400000)/",
+                            "OrderQuantity": "1",
+                            "PurchaseOrderQuantityUnit": "PC",
+                            "DocumentCurrency": "USD",
+                            "PurchaseOrderPriceUnit": "PC",
+                            "NetPriceAmount": "300.00",
+                            "OrderPriceUnit": "PC",
+                            "PurchaseOrderNetPriceQuantity": "1",
+                            "NetAmount": "300.00",
+                            "PurchasingDocumentDeletionCode": "",
+                            "ServicePerformer": "",
+                            "PerformancePeriodStartDate": null,
+                            "PerformancePeriodEndDate": null,
+                            "PurchaseOrderItemStatus": "",
+                            "SupplierConfirmationControlKey": "",
+                            "PurgDocOrderAcknNumber": "",
+                            "IsOrderAcknRqd": false,
+                            "ItemIsRejectedBySupplier": false,
+                            "to_AcctAssignmentCategoryText": {
+                                "__deferred": {
+                                    "uri": "https://mmc-s4sap04.mmc.1stbasis.com:44300/sap/opu/odata/sap/C_PURCHASEORDER_FS_SRV/C_PurOrdItemEnh(PurchaseOrder='4500000129',PurchaseOrderItem='00010')/to_AcctAssignmentCategoryText"
+                                }
+                            },
+                            "to_MaterialGroupText": {
+                                "__deferred": {
+                                    "uri": "https://mmc-s4sap04.mmc.1stbasis.com:44300/sap/opu/odata/sap/C_PURCHASEORDER_FS_SRV/C_PurOrdItemEnh(PurchaseOrder='4500000129',PurchaseOrderItem='00010')/to_MaterialGroupText"
+                                }
+                            },
+                            "to_MaterialText": {
+                                "__deferred": {
+                                    "uri": "https://mmc-s4sap04.mmc.1stbasis.com:44300/sap/opu/odata/sap/C_PURCHASEORDER_FS_SRV/C_PurOrdItemEnh(PurchaseOrder='4500000129',PurchaseOrderItem='00010')/to_MaterialText"
+                                }
+                            },
+                            "to_Plant": {
+                                "__deferred": {
+                                    "uri": "https://mmc-s4sap04.mmc.1stbasis.com:44300/sap/opu/odata/sap/C_PURCHASEORDER_FS_SRV/C_PurOrdItemEnh(PurchaseOrder='4500000129',PurchaseOrderItem='00010')/to_Plant"
+                                }
+                            },
+                            "to_PlantValHelp": {
+                                "__deferred": {
+                                    "uri": "https://mmc-s4sap04.mmc.1stbasis.com:44300/sap/opu/odata/sap/C_PURCHASEORDER_FS_SRV/C_PurOrdItemEnh(PurchaseOrder='4500000129',PurchaseOrderItem='00010')/to_PlantValHelp"
+                                }
+                            },
+                            "to_POAccountAssignmentFactSheet": {
+                                "__deferred": {
+                                    "uri": "https://mmc-s4sap04.mmc.1stbasis.com:44300/sap/opu/odata/sap/C_PURCHASEORDER_FS_SRV/C_PurOrdItemEnh(PurchaseOrder='4500000129',PurchaseOrderItem='00010')/to_POAccountAssignmentFactSheet"
+                                }
+                            },
+                            "to_POScheduleLineFactSheet": {
+                                "__deferred": {
+                                    "uri": "https://mmc-s4sap04.mmc.1stbasis.com:44300/sap/opu/odata/sap/C_PURCHASEORDER_FS_SRV/C_PurOrdItemEnh(PurchaseOrder='4500000129',PurchaseOrderItem='00010')/to_POScheduleLineFactSheet"
+                                }
+                            },
+                            "to_ProductTypeCodeText": {
+                                "__deferred": {
+                                    "uri": "https://mmc-s4sap04.mmc.1stbasis.com:44300/sap/opu/odata/sap/C_PURCHASEORDER_FS_SRV/C_PurOrdItemEnh(PurchaseOrder='4500000129',PurchaseOrderItem='00010')/to_ProductTypeCodeText"
+                                }
+                            },
+                            "to_PurchaseOrderItemCategoryText": {
+                                "__deferred": {
+                                    "uri": "https://mmc-s4sap04.mmc.1stbasis.com:44300/sap/opu/odata/sap/C_PURCHASEORDER_FS_SRV/C_PurOrdItemEnh(PurchaseOrder='4500000129',PurchaseOrderItem='00010')/to_PurchaseOrderItemCategoryText"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "to_PurchaseOrderLimitItem": {
+                    "__deferred": {
+                        "uri": "https://mmc-s4sap04.mmc.1stbasis.com:44300/sap/opu/odata/sap/C_PURCHASEORDER_FS_SRV/C_PurchaseOrderFs('4500000129')/to_PurchaseOrderLimitItem"
+                    }
+                },
+                "to_PurOrdRefPurConItm": {
+                    "__deferred": {
+                        "uri": "https://mmc-s4sap04.mmc.1stbasis.com:44300/sap/opu/odata/sap/C_PURCHASEORDER_FS_SRV/C_PurchaseOrderFs('4500000129')/to_PurOrdRefPurConItm"
+                    }
+                },
+                "to_PurOrdSuplrConfDisplay": {
+                    "__deferred": {
+                        "uri": "https://mmc-s4sap04.mmc.1stbasis.com:44300/sap/opu/odata/sap/C_PURCHASEORDER_FS_SRV/C_PurchaseOrderFs('4500000129')/to_PurOrdSuplrConfDisplay"
+                    }
+                },
+                "to_PurReqItemByPurOrder": {
+                    "__deferred": {
+                        "uri": "https://mmc-s4sap04.mmc.1stbasis.com:44300/sap/opu/odata/sap/C_PURCHASEORDER_FS_SRV/C_PurchaseOrderFs('4500000129')/to_PurReqItemByPurOrder"
+                    }
+                },
+                "to_SuplInvPurOrdRef": {
+                    "__deferred": {
+                        "uri": "https://mmc-s4sap04.mmc.1stbasis.com:44300/sap/opu/odata/sap/C_PURCHASEORDER_FS_SRV/C_PurchaseOrderFs('4500000129')/to_SuplInvPurOrdRef"
+                    }
+                }
+            }
+        ]
+    }
+}
