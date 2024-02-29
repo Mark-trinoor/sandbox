@@ -3,7 +3,6 @@
 import sqlite3
 from sqlite3 import Error
 
-# connecting to a nonexistant database creates it
 def create_connection(db_file):
     """ create a database connection to a SQLite database """
     conn = None
@@ -19,3 +18,4 @@ def create_connection(db_file):
 
 if __name__ == '__main__':
     create_connection(r"./test.db")
+    
