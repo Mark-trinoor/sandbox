@@ -1,0 +1,12 @@
+look at the data in sqlite command line
+Use these commands to format the output:
+
+sqlite3 ./testdb
+
+sqlite> .header on
+sqlite> .mode column
+Code language: Shell Session (shell)
+And use this SELECT statement to query data from the projects table:
+
+SELECT * FROM projects;
+SELECT * FROM tasks;
