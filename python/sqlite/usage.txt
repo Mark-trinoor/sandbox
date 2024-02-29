@@ -10,3 +10,7 @@ And use this SELECT statement to query data from the projects table:
 
 SELECT * FROM projects;
 SELECT * FROM tasks;
+
+Links
+https://www.sqlitetutorial.net/sqlite-python/
+https://www.sqlite.org/lang.html#:~:text=SQLite%20understands%20most%20of%20the,SQL%20keywords%20is%20also%20provided.
